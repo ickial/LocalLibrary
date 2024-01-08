@@ -39,10 +39,4 @@ class AuthorListView(generic.ListView):
 
 class AuthorDetailView(generic.DetailView):
     model = Author
-
-    def get_context_data(self, **kwargs):
-
-        context = super(AuthorListView, self).get_context_data(**kwargs)
-        context['some_data'] = 'This is just some data'
-        return context
-
+    paginate_by = 5
