@@ -1,6 +1,6 @@
 from django.shortcuts import render
 from django.views import generic
-from .models import Book, Author, BookInstance, Genre
+from .models import Book, Author, BookInstance
 
 
 def index(request):
@@ -40,3 +40,8 @@ class AuthorListView(generic.ListView):
 class AuthorDetailView(generic.DetailView):
     model = Author
     paginate_by = 5
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context['author_book_list'] = Book.objects.filter(author=self.object.id)
+        return context
