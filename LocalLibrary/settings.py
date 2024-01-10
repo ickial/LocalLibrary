@@ -1,5 +1,7 @@
 from pathlib import Path
 
+import django.contrib.sessions.middleware
+
 BASE_DIR = Path(__file__).resolve().parent.parent
 
 SECRET_KEY = 'django-insecure-br=8!a9@ongjuoxk@198us!)5zo2^#262awy(#7vy+rq#1^uqy'
@@ -81,3 +83,5 @@ USE_TZ = True
 STATIC_URL = 'static/'
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+SESSION_SAVE_EVERY_REQUEST = True
