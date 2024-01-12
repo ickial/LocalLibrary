@@ -1,6 +1,8 @@
+import os
 from pathlib import Path
 
 import django.contrib.sessions.middleware
+
 
 BASE_DIR = Path(__file__).resolve().parent.parent
 
