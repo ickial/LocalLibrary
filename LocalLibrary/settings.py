@@ -5,7 +5,6 @@ import django.contrib.sessions.middleware
 
 
 BASE_DIR = Path(__file__).resolve().parent.parent
-
 SECRET_KEY = 'django-insecure-br=8!a9@ongjuoxk@198us!)5zo2^#262awy(#7vy+rq#1^uqy'
 
 DEBUG = True
