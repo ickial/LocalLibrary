@@ -1,6 +1,9 @@
 from django.shortcuts import render
 from django.views import generic
 from .models import Book, Author, BookInstance
+from django.contrib.auth.decorators import login_required
+from django.contrib.auth.mixins import LoginRequiredMixin
+
 
 
 def index(request):
@@ -15,7 +18,7 @@ def index(request):
                                                   'num_authors': num_authors, 'num_visits': num_visits})
 
 
-class BookListView(generic.ListView):
+class BookListView(LoginRequiredMixin, generic.ListView):
     model = Book
     paginate_by = 20
 
@@ -25,17 +28,17 @@ class BookListView(generic.ListView):
         return context
 
 
-class BookDetailView(generic.DetailView):
+class BookDetailView(LoginRequiredMixin, generic.DetailView):
     model = Book
     paginate_by = 5
 
 
-class AuthorListView(generic.ListView):
+class AuthorListView(LoginRequiredMixin, generic.ListView):
     model = Author
     paginate_by = 25
 
 
-class AuthorDetailView(generic.DetailView):
+class AuthorDetailView(LoginRequiredMixin, generic.DetailView):
     model = Author
     paginate_by = 5
 

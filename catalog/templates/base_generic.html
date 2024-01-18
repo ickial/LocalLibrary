@@ -26,7 +26,7 @@
                 <form name="logout" method="post" action="{% url 'logout' %}">
                     {% csrf_token %}
                     <input type="hidden" name="supporttype" />
-                    <input type="submit" value="Log out" />
+                    <input type="submit" value="Logout" />
                 </form>
             {% else %}
                 <li><a href="{% url 'login'%}">Login</a></li>
